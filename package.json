@@ -1,0 +1,16 @@
+{
+  "name": "acortador-urls",
+  "version": "1.0.0",
+  "description": "El objetivo de este proyecto es generar el backend de una aplicación web acortadora de direcciones (URLs).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

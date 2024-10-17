@@ -1,0 +1,40 @@
+# Acortar una URL (POST /acorta)
+POST http://localhost:3000/acorta
+Content-Type: application/json
+
+{
+    "user": "Fer Moon",
+    "url": "https://www.urlquequieresacortar.com/ruta/documento.html"
+}
+
+###
+
+# Acortar una URL con link personalizado (POST /acorta)
+POST http://localhost:3000/acorta
+Content-Type: application/json
+
+{
+    "tulink": "Cust0mL1nk",
+    "user": "Fer Moon",
+    "url": "https://www.urlquequieresacortar.com/ruta/documento.html"
+}
+
+###
+
+# Validar si un link personalizado está disponible (GET /validar/:tulink)
+GET http://localhost:3000/validar/mi-link
+
+###
+
+# Redireccionar a la URL original con código generado (GET /:codigo)
+GET http://localhost:3000/bfed42cc
+
+###
+
+# Redireccionar a la URL original con link personalizado (GET /:codigo)
+GET http://localhost:3000/Cust0mL1nk
+
+###
+
+# Consultar la base de datos completa (GET /database)
+GET http://localhost:3000/database
