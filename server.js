@@ -5,7 +5,7 @@ const port = 3000;
 // Middleware para procesar JSON
 app.use(express.json());
 
-app.use(expres.static('web'))
+app.use(express.static('web'))
 // Importar rutas (a implementar por el alumno)
 const urlRoutes = require('./routes/urls');
 app.use('/', urlRoutes);

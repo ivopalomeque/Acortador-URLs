@@ -16,6 +16,40 @@ const saveDatabase = (data) => {
 
 // POST /acorta - Acortar una URL
 router.post('/acorta', (req, res) => {
+    const {usuario,sitio,tulink} = req.body;
+
+    if (!usuario || !sitio) {
+        console.log("Faltan Datos")
+        return res.status(400).json({ message: "Faltan Datos"});
+    }
+    const leerData = readDatabase()
+    const codigoTransaccion = uuidv4()
+    const codigo = codigoTransaccion.slice(0,-28);
+    if (tulink) {
+        const linkExistente = leerData.find((entry)=> entry.codigo
+    === tulink);
+        if (linkExistente){
+            return res.status(409).json({
+                codigo: 409,
+                mensaje: "El link personalizado ya está en uso.",
+            })
+        }
+    }
+
+    let guardarDatos = {
+            codigoTransaccion,
+            fechaGestion: new Date(),
+            usuario,
+            sitio,
+            codigo: tulink || codigo,
+            utiliza: `https://pico.li/${tulink || codigo}`,
+            visits:0,
+        };
+    leerData.push(guardarDatos);
+    saveDatabase(leerData);
+
+    console.log(codigoTransaccion);
+    res.status(201).json({guardarDatos})
     // TODO: Lógica para acortar la URL (a completar por el alumno)
     // 1. Leer datos desde req.body
     // 2. Generar código único (o personalizado)

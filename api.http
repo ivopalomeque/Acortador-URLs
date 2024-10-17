@@ -15,8 +15,8 @@ Content-Type: application/json
 
 {
     "tulink": "Cust0mL1nk",
-    "user": "Fer Moon",
-    "url": "https://www.urlquequieresacortar.com/ruta/documento.html"
+    "usuario": "Fer Moon",
+    "sitio": "https://www.urlquequieresacortar.com/ruta/documento.html"
 }
 
 ###
